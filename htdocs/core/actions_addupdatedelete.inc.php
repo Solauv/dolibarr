@@ -352,6 +352,7 @@ if ($action == 'update' && !empty($permissiontoadd)) {
 			if (!$error && !empty($val['validate']) && is_callable(array($object, 'validateField'))) {
 				if (!$object->validateField($object->fields, $key, $value)) {
 					$error++;
+					setEventMessages($object->error, $object->errors, 'errors');
 				}
 			}
 		}
